@@ -12,7 +12,7 @@ LABEL \
     ALPINE="$VERSION_OS" \
     BUILD_ID="$BUILD_ID" \
     COMMIT_ID="$COMMIT_ID" \
-    MAINTAINER='Samuel Fontebasso <samuel.txd@gmail.com>' \
+    MAINTAINER='Federico Maiorini <federico.maiorini@fitprime.com>' \
     PHP_VERSION="$VERSION_PHP"
 
 RUN set -ex; \

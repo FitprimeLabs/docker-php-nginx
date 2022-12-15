@@ -1,47 +1,34 @@
-name: docker
+name: Create and publish a Docker image
 
-on:
-  release:
-    types: [published]
+#on:
+#  push:
+#    branches: ['release']
+on: [push]
+
+env:
+#  REGISTRY: containers.HOSTNAME
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-push-image:
-    runs-on: ubuntu-latest
+  build-and-push-image:
+    runs-on: [self-hosted]
+    permissions:
+      contents: read
+      packages: write
+
     steps:
-      - name: Publish version env var
-        run: echo "VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: checkout code
-        uses: actions/checkout@v2
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-
-      - name: Set up Docker Buildx
-        id: buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: build and push the image
+      - name: Build the hello-docker Docker image
         run: |
-          docker buildx build . \
-            --build-arg BUILD_ID=${{ github.run_id }} \
-            --build-arg COMMIT_ID=$(git rev-parse --short "$GITHUB_SHA") \
-            --tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:${{ env.VERSION }} \
-            --tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPO }}:latest \
-            --platform linux/amd64,linux/arm64 \
-            --push
-
-#      - name: Push readme
-#        uses: actionhippie/pushrm@v1
-#        with:
-#          provider: dockerhub
-#          target: fontebasso/php-nginx
-#          username: ${{ secrets.DOCKERHUB_USERNAME }}
-#          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-#          readme: README.md
+          docker build . --tag ghcr.io/deselikem/hello-docker-gcr-demo:latest --platform linux/arm64
+          docker run ghcr.io/deselikem/hello-docker-gcr-demo:latest
+          docker push ghcr.io/deselikem/hello-docker-gcr-demo:latest
