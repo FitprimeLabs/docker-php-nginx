@@ -37,11 +37,11 @@ jobs:
             --platform linux/amd64,linux/arm64 \
             --push
 
-      - name: Push readme
-        uses: actionhippie/pushrm@v1
-        with:
-          provider: dockerhub
-          target: fontebasso/php-nginx
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          readme: README.md
+#      - name: Push readme
+#        uses: actionhippie/pushrm@v1
+#        with:
+#          provider: dockerhub
+#          target: fontebasso/php-nginx
+#          username: ${{ secrets.DOCKERHUB_USERNAME }}
+#          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+#          readme: README.md
