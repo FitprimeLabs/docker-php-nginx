@@ -1,9 +1,10 @@
-# fontebasso/php-nginx
+# fitprimelabs/php-nginx
 
-[![Docker Build](https://github.com/fontebasso/docker-php-nginx/workflows/docker/badge.svg)](https://github.com/fontebasso/docker-php-nginx/actions?query=workflow%3Adocker)
-[![Docker Pulls](https://img.shields.io/docker/pulls/fontebasso/php-nginx)](https://hub.docker.com/r/fontebasso/php-nginx)
-[![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/fontebasso/docker-php-nginx)
-[![GitHub License](https://img.shields.io/github/license/fontebasso/docker-php-nginx)](https://github.com/fontebasso/docker-php-nginx/blob/main/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/fitprimelabs/docker-php-nginx)](https://hub.docker.com/r/fitprimelabs/docker-php-nginx)
+[![GitHub Repo](https://img.shields.io/badge/github-repo-yellowgreen)](https://github.com/fitprimelabs/docker-php-nginx)
+[![GitHub License](https://img.shields.io/github/license/fitprimelabs/docker-php-nginx)](https://github.com/fitprimelabs/docker-php-nginx/blob/main/LICENSE)
+
+## This projects is forked from https://github.com/fontebasso/docker-php-nginx
 
 This project is container image docker for run PHP with NGINX.
 
@@ -20,7 +21,7 @@ Use this docker image as a base to run your project, tested on Laravel 8 project
 #### 1. Your Dockerfile
 
 ```Dockerfile
-FROM fontebasso/php-nginx:[version]
+FROM fitprimelabs/php-nginx:[version]
 COPY /src /app
 RUN chown -R 82:82 /app
 ```
@@ -60,22 +61,19 @@ To run this image, only the Docker Engine is needed.
 * Nginx
 * Imagemagick
 
-See [Dockerfile](https://github.com/fontebasso/docker-php-nginx/blob/main/Dockerfile) for details of the extensions, libs and configurations.
+See [Dockerfile](https://github.com/fitprimelabs/docker-php-nginx/blob/main/Dockerfile) for details of the extensions, libs and configurations.
 
 ## Find Us
 
-* [GitHub](https://github.com/fontebasso/docker-php-nginx)
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://github.com/fontebasso/docker-php-nginx/blob/main/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+* [GitHub](https://github.com/fitprimelabs/docker-php-nginx)
 
 ## Authors
-
+* **Federico Maiorini** [FitprimeLabs](https://github..com/fitprimelabs)
+### Original author
 * **Samuel Fontebasso** - [fontebasso](https://github.com/fontebasso)
 
-See also the list of [contributors](https://github.com/fontebasso/docker-php-nginx/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/fitprimelabs/docker-php-nginx/contributors) who participated in this project.
 
 ## License
 
-The MIT License, see the [LICENSE](https://github.com/fontebasso/docker-php-nginx/blob/main/LICENSE) file for details.
+The MIT License, see the [LICENSE](https://github.com/fitprimelabs/docker-php-nginx/blob/main/LICENSE) file for details.
