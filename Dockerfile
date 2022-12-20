@@ -18,6 +18,7 @@ LABEL \
 RUN set -ex; \
     \
     apk add --no-cache --upgrade git \
+        openssh \
         bzip2-dev \
         ca-certificates \
         curl \
