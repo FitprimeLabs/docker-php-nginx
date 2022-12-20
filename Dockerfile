@@ -19,6 +19,7 @@ RUN set -ex; \
     \
     apk add --no-cache --upgrade git \
         openssh \
+        autossh \
         bzip2-dev \
         ca-certificates \
         curl \
